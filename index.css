@@ -188,10 +188,8 @@ padding: 10px 0;
 
   #newsletter button{ 
     white-space: nowrap;
-
   }
 
   #newsletter .form{ 
     display: flex;
-    
   }
