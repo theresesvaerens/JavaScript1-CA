@@ -161,12 +161,19 @@ padding: 10px 0;
     justify-content: space-between;
     flex-wrap: wrap;
     align-items: center;
-    background-color: black;
-
+    background-image: url(Images/filmstrip-5272091_1280.jpg);
+    background-repeat: no-repeat;
+    background-position: 20% 30%;
   }
 
   #newsletter p span { 
     color:rgba(255, 0, 0, 0.846);
+  }
+
+  #newsletter h4{ 
+    font-size: 22px;
+    font-weight: 700;
+    color: white;
   }
 
   #newsletter input{ 
