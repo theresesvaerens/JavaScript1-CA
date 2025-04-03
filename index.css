@@ -152,6 +152,10 @@ padding: 10px 0;
     background-position: center;
   }
 
+  #banner button:hover{
+    background-color: rgba(255, 0, 0, 0.846);
+  }
+
   #newsletter { 
     display: flex;
     justify-content: space-between;
@@ -162,7 +166,7 @@ padding: 10px 0;
   }
 
   #newsletter p span { 
-    color: red;
+    color:rgba(255, 0, 0, 0.846);
   }
 
   #newsletter input{ 

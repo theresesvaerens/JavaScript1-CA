@@ -18,6 +18,20 @@
     transition: 0.3s ease-in-out;
 }
 
+button.normal {
+  font-size: 14px;
+  font-weight: 600;
+  padding: 15px 30px;  
+  color: #000000;
+  background-color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: 0.2s;
+}
+
+
 .button:hover {
     background-color: black;
     color: white;
