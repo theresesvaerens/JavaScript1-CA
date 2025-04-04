@@ -74,12 +74,26 @@
     }
 
     #hero {
-        
         padding: 0 20px;  
         background-position: 55%;
     }
 
-    #product1 .pro{
-        width: 100%;;
+
+
+     #prodetails {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         }
+
+        #prodetails .single-pro-image {
+            width: 100%;
+            margin-right: 0px;
+          }
+        
+        #prodetails .single-pro-details {
+            width: 100%;
+            padding-top: 30px;
+          }
+
 }
