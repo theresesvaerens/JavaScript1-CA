@@ -1,0 +1,56 @@
+#contact {
+    height: 75vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+  
+  .contact_left {
+    display: flex;
+    flex-direction: column;
+    Width: 400px;
+  }
+  
+  .contact_inputs {
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: small;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  button {
+    padding: 5px;
+    font-size: small;
+    color: white;
+    background-color: #333;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #555;
+  }
+  
+  .contact_right{
+    align-items: center;
+  }
+  
+  .contact_right p{
+    font-size: medium;
+    padding: 5px;
+    padding-left: 80px;
+  }
+  
+  .contact_right i{
+    font-size: 24px;
+    padding-top: 20px;
+    padding-left: 80px;
+    color: white;
+  }
+  
+  .contact_right img {
+    max-width: 100%;
+    height: auto;
+  }
