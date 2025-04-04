@@ -81,12 +81,18 @@ text-align: center;
     display: flex;
     align-items: center;
   }
+
+.scroll-content a:hover img{
+  transform: scale(1.2);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
   
 .scroll-content img {
     width: 200px;
-    height: auto;
+    height: 300px;
     margin-right: 10px;
     border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
 
 .section-p1 {

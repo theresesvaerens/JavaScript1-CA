@@ -1,0 +1,63 @@
+#filter-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgb(24, 26, 27);;
+    color: white;
+    border-bottom: 1px solid white;
+    margin: 50px 50px;
+}
+
+
+.category-menu {
+    position: relative;
+}
+
+#category-toggle {
+    background-color: rgb(24, 26, 27);
+    color: white;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#category-list {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 30px;
+    background-color: rgb(24, 26, 27);
+    border: none;
+    list-style: none;
+    padding: 10px;
+    width: 150px;
+}
+
+#category-list li {
+    padding: 8px 10px;
+}
+
+#category-list a {
+    color: white;
+    text-decoration: none;
+}
+
+#category-list a:hover {
+    color: rgba(255, 0, 0, 0.846);
+}
+
+#filter-title {
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+
+.sort-dropdown select {
+    background: #222;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    font-size: 14px;
+    cursor: pointer;
+}

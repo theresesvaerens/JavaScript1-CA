@@ -15,5 +15,13 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-});
+    document.getElementById('category-toggle').addEventListener('click', function() {
+        var categoryList = document.getElementById('category-list');
+        if (categoryList.style.display === "none" || categoryList.style.display === "") {
+            categoryList.style.display = "block";
+        } else {
+            categoryList.style.display = "none";
+        }
+    });
 
+});
