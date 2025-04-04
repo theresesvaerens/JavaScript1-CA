@@ -9,9 +9,10 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    if (close) { // Må være inni DOMContentLoaded
+    if (close) { 
         close.addEventListener("click", () => {
             nav.classList.remove("active");
         });
     }
+
 });
