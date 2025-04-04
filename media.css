@@ -69,5 +69,13 @@
 }
 
 @media (max-width:480px){
-    
+    #header {
+        padding: 10px 10px;
+    }
+
+    #hero {
+        
+        padding: 0 20px;  
+        background-position: 55%;
+    }
 }
