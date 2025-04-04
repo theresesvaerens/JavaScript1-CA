@@ -41,6 +41,11 @@
 
 }
 
+#mobile{
+  display: none;
+  align-items: center;
+}
+
 #hero {
     background-image: url(Images/Cinema\,\ popcorn.jpg);
     height: 90vh;
