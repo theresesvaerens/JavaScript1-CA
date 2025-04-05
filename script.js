@@ -2,6 +2,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const bar = document.getElementById("bar");
     const close = document.getElementById("close");
     const nav = document.getElementById("navbar");
+    const cartIcon = document.getElementById("cart");
+    const cart = document.querySelector(".cart");
+    const cartClose = document.querySelector("#cart-close");
+
+    cartIcon.addEventListener("click", () => cart.classList.add("active"));
+    cartClose.addEventListener("click", () => cart.classList.remove("active"));
 
     if (bar) {
         bar.addEventListener("click", () => {
@@ -14,14 +20,5 @@ document.addEventListener("DOMContentLoaded", () => {
             nav.classList.remove("active");
         });
     }
-
-    document.getElementById('category-toggle').addEventListener('click', function() {
-        var categoryList = document.getElementById('category-list');
-        if (categoryList.style.display === "none" || categoryList.style.display === "") {
-            categoryList.style.display = "block";
-        } else {
-            categoryList.style.display = "none";
-        }
-    });
 
 });
