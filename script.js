@@ -128,7 +128,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
-    const buyNowButton = document.querySelector(".btn.buy");
+    const buyNowButton = document.querySelector(".btn-buy");
     if (buyNowButton) {
         buyNowButton.addEventListener("click", () => {
             const cartBoxes = cartContent.querySelectorAll(".cart-box");
