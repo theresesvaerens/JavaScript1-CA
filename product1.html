@@ -13,23 +13,47 @@
     <script src="script.js"></script>
     
     <section id="header">
-        <a href="index.html"><img src="Images/logo.png" class="SquareEyes_Logo" alt=""></a>
-       
-        <div>
-          <ul id="navbar">
-            <li><a href="index.html">Home</a></li>
-            <li><a class="active" href="movies.html">Movies</a></li>
-            <li><a href="user.html"><i class="fa-regular fa-circle-user"></i></a></li>
-            <li id="lg-bag"><a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a></li>
-            <a href="#" id="close"><i class="fa-solid fa-xmark"></i></a>
-          </ul>  
+      <a href="index.html"><img src="Images/logo.png" class="SquareEyes_Logo" alt="Logo"></a>
+     
+      <div>
+        <ul id="navbar">
+          <li><a class="active" href="index.html">Home</a></li>
+          <li><a href="movies.html">Movies</a></li>
+          <li><a href="user.html"><i class="fa-regular fa-circle-user"></i></a></li>
+          <li id="cart"><a href="#"><i class="fa-solid fa-cart-shopping"></i></a></li>
+          <span class="cart-item-count">0</span>
+          <a href="#" id="close"><i class="fa-solid fa-xmark"></i></a>
+        </ul>  
+      </div>
+      <div id="mobile">
+          <a href="#" id="cart-mobile"><i class="fa-solid fa-cart-shopping"></i></a>
+          <i id="bar" class="fa-solid fa-bars"></i>
+      </div>
+  </section>
+    <div class="cart">
+        <h4 class="cart-title">Your shopping cart</h4>
+        <div class="cart-content">
+         <!-- <div class="cart-box">
+            <img src="Images/Square_Eyes_Cover1.jpeg" class="cart-img">
+            <div class="cart-detail">
+                <h4 class="cart-product-title">Hobbs and shaw</h4>
+                <span class="cart-price">169 NOK</span>
+                <div class="cart-quantity">
+                    <button id="decrement">-</button>
+                    <span class="number">1</span>
+                    <button id="increment">+</button>
+                </div>
+            </div>
+                <i class="fa-solid fa-trash cart-remove"></i>
+            </div> -->
         </div>
-        <div id="mobile">
-            <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
-            <i id="bar" class="fa-solid fa-bars"></i>
+            <div class="total">
+                <div class="total-title">Total</div>
+                <div class="total-price">0 NOK</div>
         </div>
-    </section>
-
+        <button class="btn-buy">Buy now</button>
+        <i id="cart-close" class="fa-solid fa-xmark"></i>
+    </div>
     <section id="prodetails" class="section-p1">
         <div class="single-pro-image">
             <img src="Images/Square_Eyes_Cover1.jpeg" width="100%" alt="Hobbs and shaw">

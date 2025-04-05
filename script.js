@@ -120,10 +120,10 @@ document.addEventListener("DOMContentLoaded", () => {
         cartItemCount += change;
 
         if (cartItemCount > 0) {
-            cartItemCountBadge.style.visibility = "visible";
+            cartItemCountBadge.style.display = "flex";
             cartItemCountBadge.textContent = cartItemCount;
         } else {
-            cartItemCountBadge.style.visibility = "hidden";
+            cartItemCountBadge.style.display = "none";
             cartItemCountBadge.textContent = "";
         }
     };
@@ -146,3 +146,4 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+

@@ -40,6 +40,21 @@
     color: rgba(255, 0, 0, 0.846);
 }
 
+
+.cart-item-count{
+display: flex;
+width: 20px;
+height: 20px;
+background-color:rgba(255, 0, 0, 0.846) ;
+justify-content: center;
+align-items: center;
+color: white;
+border-radius: 50%;
+position: absolute;
+top: 35%;
+right: 75px;
+}
+
 .cart  {
   position: fixed;
   top: 100px;
@@ -127,7 +142,7 @@ color: #999;
 
 .total{
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
   border-top: 1px solid #333;
   margin-top: 20px;
