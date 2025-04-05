@@ -127,25 +127,6 @@ document.addEventListener("DOMContentLoaded", () => {
             cartItemCountBadge.textContent = "";
         }
     };
-
-    const buyNowButton = document.querySelector(".btn-buy");
-    if (buyNowButton) {
-        buyNowButton.addEventListener("click", () => {
-            const cartBoxes = cartContent.querySelectorAll(".cart-box");
-            if (cartBoxes.length === 0) {
-                alert("You cart is empty. Please add items to your cart before buying.");
-                return;
-            }
-
-            cartBoxes.forEach(cartBox => cartBox.remove());
-            cartItemCount = 0;
-            updateCartCount(0);
-            updateTotalPrice();
-
-            alert("Tank you for your purchase! You can watch the movie on your profile right away");
-        });
-    }
-
     
 });
 
