@@ -38,7 +38,25 @@
 #navbar li a:hover,
 #navbar li a.active {
     color: rgba(255, 0, 0, 0.846);
+}
 
+#cart-icon {
+    position: relative;
+    display: flex;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+#cart-icon .cart-item-count{
+  position: absolute;
+  top: 0;
+  right: -6px;
+  width: 20px;
+  height: 20px;
+  background: rgba(255, 0, 0, 0.846);
+  border-radius: 50%;
+  font-size: 12px;
+  color: fff;
 }
 
 #mobile{
