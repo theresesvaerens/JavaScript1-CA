@@ -145,5 +145,7 @@ document.addEventListener("DOMContentLoaded", () => {
             alert("Tank you for your purchase! You can watch the movie on your profile right away");
         });
     }
+
+    
 });
 
