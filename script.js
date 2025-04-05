@@ -1,4 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
+    
+    const cart = [];
+    let cartItemCount = 0;
+    const cartCount = document.querySelector('.cart-item-count');
+    const cartTotal = document.querySelector('.total-price');
+    
+    
     const bar = document.getElementById("bar");
     const close = document.getElementById("close");
     const nav = document.getElementById("navbar");
@@ -15,25 +22,27 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    
     const cartIcon = document.getElementById("cart");
-    const cart = document.querySelector(".cart");
+    const cartElement = document.querySelector(".cart");
     const cartClose = document.querySelector("#cart-close");
 
-    cartIcon.addEventListener("click", () => cart.classList.add("active"));
-    cartClose.addEventListener("click", () => cart.classList.remove("active"));
+    cartIcon.addEventListener("click", () => cartElement.classList.add("active"));
+    cartClose.addEventListener("click", () => cartElement.classList.remove("active"));
 
+    
     const addCartButtons = document.querySelectorAll(".add-cart");
     const cartContent = document.querySelector(".cart-content");
-    let cartItemCount = 0;
 
     addCartButtons.forEach(button => {
         button.addEventListener("click", event => {
             const productBox = event.target.closest(".product-box");
-            addToCart(productBox);
+            addToCartFromList(productBox);
         });
     });
 
-    const addToCart = productBox => {
+    
+    const addToCartFromList = productBox => {
         const productImgScr = productBox.querySelector("img").src;
         const productTitle = productBox.querySelector(".product-title").textContent;
         const productPrice = productBox.querySelector(".price").textContent;
@@ -65,14 +74,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
         cartContent.appendChild(cartBox);
 
-       
         cartBox.querySelector(".cart-remove").addEventListener("click", () => {
             cartBox.remove();
             updateCartCount(-1);
             updateTotalPrice();
         });
 
-        
         const quantityElement = cartBox.querySelector(".number");
         const decrementBtn = cartBox.querySelector(".decrement");
         const incrementBtn = cartBox.querySelector(".increment");
@@ -97,6 +104,7 @@ document.addEventListener("DOMContentLoaded", () => {
         updateTotalPrice();
     };
 
+    
     const updateTotalPrice = () => {
         const totalPriceElement = document.querySelector(".total-price");
         const cartBoxes = cartContent.querySelectorAll(".cart-box");
@@ -106,7 +114,6 @@ document.addEventListener("DOMContentLoaded", () => {
             const priceElement = cartBox.querySelector(".cart-price");
             const quantityElement = cartBox.querySelector(".number");
 
-            
             const price = parseFloat(priceElement.textContent.replace("NOK", "").trim());
             const quantity = parseInt(quantityElement.textContent);
             total += price * quantity;
@@ -115,18 +122,57 @@ document.addEventListener("DOMContentLoaded", () => {
         totalPriceElement.textContent = `${total.toFixed(2)} NOK`;
     };
 
+   
     const updateCartCount = change => {
-        const cartItemCountBadge = document.querySelector(".cart-item-count");
         cartItemCount += change;
 
         if (cartItemCount > 0) {
-            cartItemCountBadge.style.display = "flex";
-            cartItemCountBadge.textContent = cartItemCount;
+            cartCount.style.display = "flex";
+            cartCount.textContent = cartItemCount;
         } else {
-            cartItemCountBadge.style.display = "none";
-            cartItemCountBadge.textContent = "";
+            cartCount.style.display = "none";
+            cartCount.textContent = "";
         }
     };
+
     
+    const singleAddToCartBtn = document.getElementById('add-to-cart-btn');
+    const productPrice = document.getElementById('single-product-price').innerText;
+
+    const addSingleProductToCart = () => {
+        console.log(typeof cart); 
+        console.log(cart); 
+
+        const product = {
+            title: document.querySelector('.single-pro-title').innerText,
+            price: productPrice.replace('NOK', '').trim(),
+            image: document.querySelector('.single-pro-image img').src
+        };
+
+        
+        if (Array.isArray(cart)) {
+            cart.push(product);
+            updateCart();
+        } else {
+            console.error('Cart is not an array!');
+        }
+    };
+
+    if (singleAddToCartBtn) {
+        singleAddToCartBtn.addEventListener('click', addSingleProductToCart);
+    }
+
+    
+    const updateCart = () => {
+        cartCount.textContent = cart.length;
+
+        let total = 0;
+        cart.forEach(item => {
+            total += parseFloat(item.price);
+        });
+
+        cartTotal.textContent = total.toFixed(2) + ' NOK';
+    };
 });
+
 
