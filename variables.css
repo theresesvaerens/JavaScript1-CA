@@ -31,6 +31,9 @@ button.normal {
   transition: 0.2s;
 }
 
+a{
+    text-decoration: none;
+}
 
 .button:hover {
     background-color: black;

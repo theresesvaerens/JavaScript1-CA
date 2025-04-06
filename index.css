@@ -213,124 +213,42 @@ color: #999;
     flex-direction: column;
 }
 
+  .product-collection {
+    padding: 100px 9% 30px;
 
-#top10 {
-text-align: center;
-}
-
-.scroll-container {
-    display: flex;
-    overflow-x: auto;
-    white-space: nowrap;
-    margin: 20px auto;
-    padding: 20px 20px;
-    width: 100%;
-  }
-  
-.scroll-content {
-    display: flex;
-    align-items: center;
   }
 
-.scroll-content a:hover img{
-  transform: scale(1.2);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-}
-  
-.scroll-content img {
-    width: 200;
-    height: 300px;
-    margin-right: 10px;
-    border-radius: 10px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  .product-collection h1 {
+  text-align: center;
+  margin-bottom: 15px;
   }
 
-.section-p1 {
-  padding: 40px 80px;
+  .product-collection .product-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
   }
 
-.section-m1 {
-  margin: 40px 0;
+  .product-collection .img-box img {
+    width: 100% ;
+    transition: 0.5s;
   }
 
-  #shop{
-    text-align: center;
-    text-decoration: none;
-  }
-
-  .section-title{
-    text-align: center;
-    margin-bottom: 15px;
-  }
-
-  .product-content {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); 
-    gap: 20px;
-  }
-
-  .product-box a {
-    text-decoration: none;
-  }
-
-  .product-box {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 500px; 
-  background-color: #1c1c1c; 
-  padding: 15px;
-  border-radius: 12px;
-  overflow: hidden;
-  border: 2px solid rgba(255, 255, 255, 0.1);
-  transition: 0.5s;
-  }
-
-  .product-box .img-box {
-    height: 300px; 
-    overflow: hidden;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-
-  .img-box img {
-    height: 100%;
-    width: auto;
-    object-fit: cover;
-  }
-
-  .product-box:hover {
+  .product-collection .img-box:hover img {
     transform: scale(1.1);
   }
 
-  .product-box .product-title{
-    font-size: 20px;
+  .product-collection .title {
+    font-size: 18px;
     margin-top: 10px;
-    line-height: 1.1;
   }
 
-  .product-box .price-and-cart{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .price-and-cart .price{
+  .product-collection .price {
+    display: block;
     font-weight: 500;
-    color: white;
+    margin-top: 5px;
   }
 
-  .price-and-cart .add-cart{
-    padding: 10px;
-    background:rgba(255, 0, 0, 0.846);
-    border-radius: 6px;
-    font-size: 20px;
-    color: white;
-    cursor: pointer;
-  }
 
 #banner {
     display: flex;
