@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <title>Square Eyes | Checkout</title>
+    <title>Square Eyes | Home</title>
 </head>
 
 <body>
@@ -14,10 +14,10 @@
         <a href="index.html"><img src="Images/logo.png" class="SquareEyes_Logo" alt="Logo"></a>
         <div>
             <ul id="navbar">
-                <li><a href="index.html">Home</a></li>
+                <li><a class="active" href="index.html">Home</a></li>
                 <li><a href="movies.html">Movies</a></li>
                 <li><a href="user.html"><i class="fa-regular fa-circle-user"></i></a></li>
-                <li id="cart"><a class="active" href="checkout.html"><i class="fa-solid fa-cart-shopping"></i></a></li>
+                <li id="cart"><a href="checkout.html"><i class="fa-solid fa-cart-shopping"></i></a></li>
                 <span class="cart-item-count">0</span>
                 <a href="#" id="close"><i class="fa-solid fa-xmark"></i></a>
             </ul>
@@ -28,36 +28,13 @@
         </div>
     </section>
 
-    <div class="cart">
-        <div class="cart-header">
-            <span>Products</span>
-            <span>Price</span>
-            <span>Quantity</span>
-            <span>Total</span>
-            <span>Remove</span>
-        </div>
-
-        <div class="cart-items">
-            <div class="cart-item">
-              <!---  <div class="product">
-                    <img src="Images/Square_Eyes_Cover1.jpeg" alt="Hobbs and Shaw">
-                    <div class="item-detail">
-                        <p>Hobbs and Shaw</p>
-                    </div>
-                </div>
-                <span class="price">169 NOK</span>
-                <div class="quantity"><input type="number" value="1" min="1"></div>
-                <span class="total-price">169 NOK</span>
-                <button class="remove"><i class="fa-solid fa-trash cart-remove"></i></button> -->
-            </div>
-        </div>
-
-        <div class="cart-total">
-            <h3>Cart total</h3>
-            <p>Subtotal<span class="subtotal">169 NOK</span></p>
-            <a href="checkout.success.html"><button class="normal">Proceed to checkout</button></a>
-        </div>
-    </div>
+    <div class="checkout_success">
+        <i class="fa-regular fa-circle-check"></i>
+        <h1>Thank you for your purchase!</h1>
+        <p>Your order number is #123456</p>
+        <p>We have emailed you an order confirmation with details.</p>
+        <p>You can view the movie right away, you find it under “My page”.</p>
+      </div>
 
     <section id="footer">
         <ul class="footer_menu">
@@ -69,6 +46,7 @@
         <a href="index.html"><img src="Images/logo.png" alt="SquareEyes Logo" class="logo" width="250" height="80"></a>
     </section>
 
+    <script src="products.js"></script>
     <script src="script.js"></script>
 </body>
 
