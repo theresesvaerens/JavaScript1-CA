@@ -23,7 +23,6 @@ function displayProducts() {
             </a>
             <div class="price-and-cart">
                 <span class="price">${product.price} NOK</span>
-                <i class="fa-solid fa-cart-shopping add-cart"></i>
             </div>
         `;
         productContainer.appendChild(productCard);
@@ -135,6 +134,7 @@ function displayCart() {
     });
 
     if (subtotalElem) subtotalElem.textContent = "NOK " + subtotal.toFixed(2);
+    if (grandtotalElem) grandtotalElem.textContent = "NOK " + subtotal.toFixed(2);
 
     
     document.querySelectorAll(".quantity input").forEach(input => {

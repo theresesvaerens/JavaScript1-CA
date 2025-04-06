@@ -55,13 +55,6 @@ top: 35%;
 right: 75px;
 }
 
-.add-cart{
-  color: white;
-  background: rgba(255, 0, 0, 0.846);
-  padding: 10px;
-  border-radius: 5%;
-}
-
 .btn-buy{
   display: block;
   padding: 10px 30px;
