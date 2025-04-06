@@ -1,10 +1,13 @@
 const productContainer = document.querySelector(".product-list");
 const isProductPage = document.querySelector(".product-details");
+const isCheckoutPage = document.querySelector(".cart");
 
 if (productContainer) {
     displayProducts();
 } else if (isProductPage) {
     displayProduct();
+} else if (isCheckoutPage) {
+    displayCart();
 }
 
 function displayProducts() {
@@ -41,17 +44,14 @@ function displayProduct() {
             const image = document.querySelector(".product-img img"); 
             const ratingE1 = document.querySelector(".rating span");
 
-            
             titleE1.textContent = product.title;
             priceE1.textContent = `${product.price} NOK`;
             descriptionE1.textContent = product.description;
             image.src = product.image; 
             image.alt = product.title;
 
-            
             ratingE1.textContent = product.rating; 
 
-           
             const addToCartBtn = document.querySelector("#add-cart-btn");
             addToCartBtn.addEventListener("click", () => {
                 addToCart(product); 
@@ -59,7 +59,6 @@ function displayProduct() {
         }
     }
 }
-
 
 function addToCart(product) {
     let cart = JSON.parse(sessionStorage.getItem("cart")) || []; 
@@ -77,13 +76,9 @@ function addToCart(product) {
         });
     }
 
-    
     sessionStorage.setItem("cart", JSON.stringify(cart));
-
-    
     updateCartItemCount();
 }
-
 
 function updateCartItemCount() {
     const cart = JSON.parse(sessionStorage.getItem("cart")) || [];
@@ -94,5 +89,74 @@ function updateCartItemCount() {
     }
 }
 
-
 window.addEventListener("DOMContentLoaded", updateCartItemCount);
+
+function displayCart() {
+    const cart = JSON.parse(sessionStorage.getItem("cart")) || [];
+    const cartItemsContainer = document.querySelector(".cart-items");
+    const subtotalElem = document.querySelector(".cart-total .subtotal");
+    const grandtotalElem = document.querySelector(".cart-total .grandtotal");
+
+    cartItemsContainer.innerHTML = "";
+
+    if (cart.length === 0) {
+        cartItemsContainer.innerHTML = "<p>Your cart is empty</p>";
+        subtotalElem.textContent = "NOK 0";
+        grandtotalElem.textContent = "NOK 0";
+        return;
+    }
+
+    let subtotal = 0;
+    cart.forEach((item, index) => {
+        const itemTotal = parseFloat(item.price.replace("NOK ", "")) * item.quantity;
+        subtotal += itemTotal;
+
+        const cartItem = document.createElement("div");
+        cartItem.classList.add("cart-item");
+        cartItem.innerHTML = `
+            <div class="product">
+                <img src="${item.image}">
+                <div class="item-detail">
+                    <p>${item.title}</p>
+                </div>
+            </div>
+            <span class="price">${item.price}</span>
+            <div class="quantity">
+                <input type="number" value="${item.quantity}" min="1" data-index="${index}">
+            </div>
+            <span class="total-price">${itemTotal.toFixed(2)} NOK</span>
+            <button class="remove" data-index="${index}">
+                <i class="fa-solid fa-trash cart-remove"></i>
+            </button>
+        `;
+
+        cartItemsContainer.appendChild(cartItem);
+    });
+
+    subtotalElem.textContent = "NOK " + subtotal.toFixed(2);
+    grandtotalElem.textContent = "NOK " + (subtotal).toFixed(2);
+
+    
+    document.querySelectorAll(".quantity input").forEach(input => {
+        input.addEventListener("change", (e) => {
+            const index = e.target.dataset.index;
+            const newQuantity = parseInt(e.target.value);
+
+            if (newQuantity > 0) {
+                cart[index].quantity = newQuantity;
+                sessionStorage.setItem("cart", JSON.stringify(cart));
+                displayCart(); 
+            }
+        });
+    });
+
+    
+    document.querySelectorAll(".remove").forEach(button => {
+        button.addEventListener("click", (e) => {
+            const index = e.target.closest('button').dataset.index;
+            cart.splice(index, 1); 
+            sessionStorage.setItem("cart", JSON.stringify(cart));
+            displayCart(); 
+        });
+    });
+}
