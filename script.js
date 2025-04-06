@@ -33,7 +33,7 @@ function displayProducts() {
 function displayProduct() {
     const urlParams = new URLSearchParams(window.location.search);
     const productId = urlParams.get('id');
-    
+
     if (productId) {
         const product = products.find(p => p.id == productId);
 
@@ -49,7 +49,6 @@ function displayProduct() {
             descriptionE1.textContent = product.description;
             image.src = product.image; 
             image.alt = product.title;
-
             ratingE1.textContent = product.rating; 
 
             const addToCartBtn = document.querySelector("#add-cart-btn");
@@ -72,6 +71,7 @@ function addToCart(product) {
             id: product.id,
             title: product.title,
             price: product.price,
+            image: product.image, 
             quantity: 1
         });
     }
@@ -101,21 +101,22 @@ function displayCart() {
 
     if (cart.length === 0) {
         cartItemsContainer.innerHTML = "<p>Your cart is empty</p>";
-        subtotalElem.textContent = "NOK 0";
-        grandtotalElem.textContent = "NOK 0";
+        if (subtotalElem) subtotalElem.textContent = "NOK 0";
+        if (grandtotalElem) grandtotalElem.textContent = "NOK 0";
         return;
     }
 
     let subtotal = 0;
     cart.forEach((item, index) => {
-        const itemTotal = parseFloat(item.price.replace("NOK ", "")) * item.quantity;
+        const priceNumber = parseFloat(item.price.toString().replace(/[^\d.]/g, ""));
+        const itemTotal = priceNumber * item.quantity;
         subtotal += itemTotal;
 
         const cartItem = document.createElement("div");
         cartItem.classList.add("cart-item");
         cartItem.innerHTML = `
             <div class="product">
-                <img src="${item.image}">
+                <img src="${item.image}" alt="${item.title}">
                 <div class="item-detail">
                     <p>${item.title}</p>
                 </div>
@@ -133,8 +134,7 @@ function displayCart() {
         cartItemsContainer.appendChild(cartItem);
     });
 
-    subtotalElem.textContent = "NOK " + subtotal.toFixed(2);
-    grandtotalElem.textContent = "NOK " + (subtotal).toFixed(2);
+    if (subtotalElem) subtotalElem.textContent = "NOK " + subtotal.toFixed(2);
 
     
     document.querySelectorAll(".quantity input").forEach(input => {
