@@ -1,13 +1,11 @@
 const productContainer = document.querySelector(".product-list");
 const isProductPage = document.querySelector(".product-details");
 
-
 if (productContainer) {
     displayProducts();
 } else if (isProductPage) {
     displayProduct();
 }
-
 
 function displayProducts() {
     products.forEach(product => {
@@ -29,7 +27,6 @@ function displayProducts() {
     });
 }
 
-
 function displayProduct() {
     const urlParams = new URLSearchParams(window.location.search);
     const productId = urlParams.get('id');
@@ -38,15 +35,13 @@ function displayProduct() {
         const product = products.find(p => p.id == productId);
 
         if (product) {
-            
-           
             const titleE1 = document.querySelector(".title");
             const priceE1 = document.querySelector(".price");
             const descriptionE1 = document.querySelector(".description"); 
             const image = document.querySelector(".product-img img"); 
-            const ratingE1 = document.querySelector(".rating span"); 
+            const ratingE1 = document.querySelector(".rating span");
 
-       
+            
             titleE1.textContent = product.title;
             priceE1.textContent = `${product.price} NOK`;
             descriptionE1.textContent = product.description;
@@ -56,11 +51,48 @@ function displayProduct() {
             
             ratingE1.textContent = product.rating; 
 
-            
+           
             const addToCartBtn = document.querySelector("#add-cart-btn");
-            addToCartBtn.addEventListener("click", function () {
-                alert(`${product.title} added to the cart.`);
+            addToCartBtn.addEventListener("click", () => {
+                addToCart(product); 
             });
         }
     }
 }
+
+
+function addToCart(product) {
+    let cart = JSON.parse(sessionStorage.getItem("cart")) || []; 
+    
+    const existingItem = cart.find(item => item.id === product.id);
+
+    if (existingItem) {
+        existingItem.quantity += 1; 
+    } else {
+        cart.push({
+            id: product.id,
+            title: product.title,
+            price: product.price,
+            quantity: 1
+        });
+    }
+
+    
+    sessionStorage.setItem("cart", JSON.stringify(cart));
+
+    
+    updateCartItemCount();
+}
+
+
+function updateCartItemCount() {
+    const cart = JSON.parse(sessionStorage.getItem("cart")) || [];
+    const cartItemCount = cart.reduce((total, item) => total + item.quantity, 0); 
+    const cartItemCountElem = document.querySelector(".cart-item-count");
+    if (cartItemCountElem) {
+        cartItemCountElem.textContent = cartItemCount; 
+    }
+}
+
+
+window.addEventListener("DOMContentLoaded", updateCartItemCount);
