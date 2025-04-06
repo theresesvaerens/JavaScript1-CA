@@ -1,15 +1,15 @@
 const productContainer = document.querySelector(".product-list");
 
 if (productContainer) {
-    displayProducts ();
+    displayProducts();
 }
 
 function displayProducts() {
-    products.forEach(product =>{
+    products.forEach(product => {
         const productCard = document.createElement("div");
         productCard.classList.add("productCard");
         productCard.innerHTML = `
-            <a href="product${product.id}.html"> 
+            <a href="product.html?id=${product.id}">
                 <div class="img-box">
                     <img src="${product.image}" alt="${product.title}">
                 </div>
@@ -22,12 +22,22 @@ function displayProducts() {
         `;
 
         productContainer.appendChild(productCard);
-
-        const imgBox = productCard.querySelector(".img-box");
-        imgBox.addEventListener("click", () => {
-            sessionStorage.setItem("selectedProduct", JSON.stringify(product));
-            window.location.href = "product.html";
-        });
     });
 }
 
+window.addEventListener("DOMContentLoaded", function () {
+    const urlParams = new URLSearchParams(window.location.search);
+    const productId = urlParams.get('id');
+    
+    if (productId) {
+        const product = products.find(p => p.id == productId);
+        
+        if (product) {
+            document.querySelector(".product-img img").src = product.image;
+            document.querySelector(".product-img img").alt = product.title;
+            document.querySelector(".product-info .title").textContent = product.title;
+            document.querySelector(".product-info .price").textContent = `${product.price} NOK`;
+            document.querySelector(".product-info .description").textContent = product.description;
+        }
+    }
+});
