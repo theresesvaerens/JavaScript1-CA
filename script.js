@@ -1,8 +1,13 @@
 const productContainer = document.querySelector(".product-list");
+const isProductPage = document.querySelector(".product-details");
+
 
 if (productContainer) {
     displayProducts();
+} else if (isProductPage) {
+    displayProduct();
 }
+
 
 function displayProducts() {
     products.forEach(product => {
@@ -20,24 +25,42 @@ function displayProducts() {
                 <i class="fa-solid fa-cart-shopping add-cart"></i>
             </div>
         `;
-
         productContainer.appendChild(productCard);
     });
 }
 
-window.addEventListener("DOMContentLoaded", function () {
+
+function displayProduct() {
     const urlParams = new URLSearchParams(window.location.search);
     const productId = urlParams.get('id');
     
     if (productId) {
         const product = products.find(p => p.id == productId);
-        
+
         if (product) {
-            document.querySelector(".product-img img").src = product.image;
-            document.querySelector(".product-img img").alt = product.title;
-            document.querySelector(".product-info .title").textContent = product.title;
-            document.querySelector(".product-info .price").textContent = `${product.price} NOK`;
-            document.querySelector(".product-info .description").textContent = product.description;
+            
+           
+            const titleE1 = document.querySelector(".title");
+            const priceE1 = document.querySelector(".price");
+            const descriptionE1 = document.querySelector(".description"); 
+            const image = document.querySelector(".product-img img"); 
+            const ratingE1 = document.querySelector(".rating span"); 
+
+       
+            titleE1.textContent = product.title;
+            priceE1.textContent = `${product.price} NOK`;
+            descriptionE1.textContent = product.description;
+            image.src = product.image; 
+            image.alt = product.title;
+
+            
+            ratingE1.textContent = product.rating; 
+
+            
+            const addToCartBtn = document.querySelector("#add-cart-btn");
+            addToCartBtn.addEventListener("click", function () {
+                alert(`${product.title} added to the cart.`);
+            });
         }
     }
-});
+}
