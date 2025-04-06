@@ -160,3 +160,63 @@ function displayCart() {
         });
     });
 }
+
+const categoryToggle = document.getElementById("category-toggle");
+const categoryList = document.getElementById("category-list");
+const filterTitle = document.getElementById("filter-title");
+
+if (categoryToggle && categoryList) {
+    categoryToggle.addEventListener("click", () => {
+        categoryList.style.display = 
+            categoryList.style.display === "block" ? "none" : "block";
+    });
+
+    
+    const categoryLinks = categoryList.querySelectorAll("a");
+    categoryLinks.forEach(link => {
+        link.addEventListener("click", (e) => {
+            e.preventDefault();
+
+            const selectedGenre = link.dataset.genre;
+
+            
+            filterTitle.textContent = selectedGenre === "all" 
+                ? "ALL MOVIES" 
+                : selectedGenre.toUpperCase();
+
+            
+            productContainer.innerHTML = "";
+
+            const filtered = selectedGenre === "all"
+                ? products
+                : products.filter(p => 
+                    p.genre && p.genre.toLowerCase() === selectedGenre
+                  );
+
+            if (filtered.length === 0) {
+                productContainer.innerHTML = "<p>No movies found in this category.</p>";
+                return;
+            }
+
+            filtered.forEach(product => {
+                const productCard = document.createElement("div");
+                productCard.classList.add("productCard");
+                productCard.innerHTML = `
+                    <a href="product.html?id=${product.id}">
+                        <div class="img-box">
+                            <img src="${product.image}" alt="${product.title}">
+                        </div>
+                        <h2 class="product-title">${product.title}</h2>
+                    </a>
+                    <div class="price-and-cart">
+                        <span class="price">${product.price} NOK</span>
+                    </div>
+                `;
+                productContainer.appendChild(productCard);
+            });
+
+            categoryList.style.display = "none";
+        });
+    });
+}
+
