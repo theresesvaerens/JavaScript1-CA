@@ -65,7 +65,10 @@
        #product1 .pro{
         margin: 15px;
         }
-
+    
+    .cart-item-count{ 
+      display: none;
+    }
 }
 
 @media (max-width: 1200px) {
