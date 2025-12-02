@@ -44,6 +44,19 @@
     color: rgba(255, 0, 0, 0.846);
 }
 
+#category-list {
+    display: none;
+    position: absolute;
+    background: #222;
+    padding: 10px;
+    list-style: none;
+  }
+  
+  #category-list.open {
+    display: block;
+  }
+
+  
 #filter-title {
     font-size: 18px;
     text-transform: uppercase;
