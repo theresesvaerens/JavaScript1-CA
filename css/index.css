@@ -106,7 +106,7 @@ right: 75px;
 }
 
 #hero {
-    background-image: url(Images/Cinema\,\ popcorn.jpg);
+    background-image: url(/Images/Cinema\,\ popcorn.jpg);
     height: 90vh;
     width: 100%;
     background-position: top 25% right 0;
@@ -124,60 +124,64 @@ right: 75px;
 
 .product-collection h1 {
   text-align: center;
+  margin-bottom: 40px;
 }
+
 
 .product-collection .product-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
-}
-
-.product-collection .product-item {
-  background-color: #fff;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-}
-
-.product-collection .product-item:hover {
-  transform: translateY(-5px);
-}
-
-.product-collection .img-box {
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px; 
   width: 100%;
-  height: 400px;
-  overflow: hidden;
 }
 
-.product-collection .img-box img {
+
+.product-item {
+  background: rgb(40, 42, 43);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: transform .3s ease;
+}
+
+.product-item:hover {
+  transform: translateY(-6px);
+}
+
+.img-box {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  overflow: hidden;
+  background: #000;
+}
+
+.img-box img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
-  transition: transform 0.4s ease;
+  transition: transform .3s ease;
 }
 
-.product-collection .img-box:hover img {
+.product-item:hover img {
   transform: scale(1.05);
 }
 
-.product-collection .info {
-  padding: 15px;
+.product-item .info {
+  padding: 12px;
 }
 
-.product-collection .title {
-  font-size: 18px;
+.product-item .title {
+  font-size: 17px;
   font-weight: 600;
-  margin-bottom: 8px;
-  color: #1a1a1a;
+  margin-bottom: 6px;
 }
 
-.product-collection .price {
+.product-item .price {
   font-size: 16px;
   font-weight: 500;
-  text-align: left;
 }
+
 
 
 #banner {
