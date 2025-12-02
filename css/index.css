@@ -194,7 +194,7 @@ right: 75px;
     height: 40vh;
     background-size: cover;
     background-position: center;
-    background-image: url(Images/curtain-1275200_1280.png);
+    background-image: url(/Images/curtain-1275200_1280.png);
   }
 
   #banner button:hover{
